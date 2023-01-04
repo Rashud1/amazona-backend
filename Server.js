@@ -1,5 +1,6 @@
 import express from'express'
 import data from './data.js'
+import cors from 'cors'
 
 const app = express()
 
@@ -24,6 +25,7 @@ app.get ('/api/products/slug/:id', (req, res) =>{
     }
     res.send(data.products)
 })
+app.use(cors())
 const port = process.env.PORT || 5000
 app.listen(port, () =>{
     console.log(`serve at http://localhost:${port}`)
